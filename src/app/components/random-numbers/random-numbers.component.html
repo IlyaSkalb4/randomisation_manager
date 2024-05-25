@@ -1,0 +1,23 @@
+<div class="col-4 mt-5 p-2 gray-back text-white">
+    <div *ngIf="randomNumbersLine" class="mb-3">
+        <p><strong>Випадкові числа: </strong>{{randomNumbersLine}}</p>
+    </div>
+    <form>
+        <div class="mb-3 mt-2">
+            <label for="minRange" class="form-label">Mінемалньне значення діапозону</label>
+            <input type="number" name="minRange" id="minRange" [(ngModel)]="minRange" min="0" class="form-control" />
+        </div>
+        <div class="mb-3"> 
+            <label for="maxRange" class="form-label">Максимальну значення діапозону</label>
+            <input type="number" name="maxRange" id="maxRange" [(ngModel)]="maxRange" [min]="minRange + 1" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label for="amountNumbers" class="form-label">Кількість отриманих чисел</label>
+            <input type="number" name="amountNumbers" id="amountNumbers" [(ngModel)]="amountNumbers" min="1"
+                class="form-control" />
+        </div>
+        <div class="mb-3">
+            <button class="btn btn-outline-primary" (click)="submit()">Отримати результат</button>
+        </div>
+    </form>
+</div>

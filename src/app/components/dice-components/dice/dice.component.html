@@ -1,0 +1,63 @@
+<div class="col-7 mt-5 p-2 gray-back text-white">
+    <div *ngIf="gameState === 0" class="start-state-conatiner">
+        <div class="state-item">
+            <h2>{{title}}</h2>
+        </div>
+        <div class="state-item">
+            <button *ngFor="let diceNumber of startDiceNumbers" class="btn btn-outline-light border-none"
+                (click)="setStartDices()">
+                <app-set-dice-svg [selectedDice]="diceNumber"></app-set-dice-svg>
+            </button>
+        </div>
+        <div class="state-item">
+            <button class="btn btn-outline-light" (click)="changeState()">Почати гру</button>
+        </div>
+    </div>
+    <div *ngIf="gameState === 1" class="end-state-container">
+        <div class="computer-rolls-dice">
+            <div *ngIf="!displayComputerResult" class="state-item">
+                <h3>Комп'ютер кидає кубики...</h3>
+            </div>
+            <div *ngIf="displayComputerResult">
+                <div class="state-item">
+                    <h3>Результат компьютера</h3>
+                </div>
+                <div class="state-item">
+                    <div class="border-none">
+                        <app-set-dice-svg [selectedDice]="gameResultNumbers[0]"></app-set-dice-svg>
+                    </div>
+                    <div class="border-none">
+                        <app-set-dice-svg [selectedDice]="gameResultNumbers[1]"></app-set-dice-svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="displayComputerResult" class="user-rolls-dice">
+            <div *ngIf="!displayUserResult" class="state-item">
+                <h3>Ви кидаєте кубики...</h3>
+            </div>
+            <div *ngIf="displayUserResult">
+                <div class="state-item">
+                    <h3>Ваш результат</h3>
+                </div>
+                <div class="state-item">
+                    <div class="border-none">
+                        <app-set-dice-svg [selectedDice]="gameResultNumbers[2]"></app-set-dice-svg>
+                    </div>
+                    <div class="border-none">
+                        <app-set-dice-svg [selectedDice]="gameResultNumbers[3]"></app-set-dice-svg>
+                    </div>
+                </div>
+                <div *ngIf="displayEndGame" class="state-item">
+                    <h3>Ви перемогли!</h3>
+                </div>
+                <div *ngIf="!displayEndGame" class="state-item">
+                    <h3>Ви програли!</h3>
+                </div>
+                <div class="state-item">
+                    <button class="btn btn-outline-light" (click)="changeState()">Зіграти ще раз</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

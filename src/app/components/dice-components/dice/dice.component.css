@@ -1,0 +1,21 @@
+.start-state-container,
+.end-state-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.state-item {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.svg-image {
+    width: 100px;
+    height: auto;
+}
+
+.border-none {
+    border: none;
+    margin-left: 1em;
+}

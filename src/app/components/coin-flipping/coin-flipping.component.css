@@ -1,0 +1,71 @@
+.end-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.select-option-images {
+    display: flex;
+    justify-content: center;
+}
+
+.select-option h2 {
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.font-24 {
+    font-size: 20px;
+}
+
+.circular-picture,
+.result-image {
+    width: 180px;
+    height: 180px;
+    margin-left: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.result-image {
+    margin-left: 0;
+}
+
+.circular-picture:first-child {
+    animation: rotate 6s linear infinite reverse;
+}
+
+.circular-picture:last-child {
+    animation: rotate 6s linear infinite;
+}
+
+.circular-picture.clicked {
+    cursor: pointer;
+    animation: rotate 1s linear infinite;
+}
+
+.circular-picture:hover {
+    cursor: pointer;
+}
+
+.circular-picture:first-child:hover {
+    animation: rotate 2s linear infinite;
+}
+
+.circular-picture:last-child:hover {
+    animation: rotate 2s linear infinite reverse;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

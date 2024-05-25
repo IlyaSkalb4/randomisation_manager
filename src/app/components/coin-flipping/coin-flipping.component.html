@@ -1,0 +1,25 @@
+<div class="col-7 mt-5 p-2 gray-back text-white">
+    <div *ngIf="gameState === 0" class="select-option">
+        <h2>{{title}}</h2>
+        <div class="select-option-images">
+            <div class="circular-picture" (click)="toggleClickedState(0)" [class.clicked]="clickedImage === 0">
+                <img [src]="images[0]" alt="Rotating Picture Head">
+            </div>
+            <div class="circular-picture" (click)="toggleClickedState(1)" [class.clicked]="clickedImage === 1">
+                <img [src]="images[1]" alt="Rotating Picture Tail">
+            </div>
+        </div>
+        <div class="button-container" *ngIf="clickedImage !== null">
+            <button (click)="changeState()" class="mt-2 btn btn-outline-primary font-24">Підкинути</button>
+        </div>
+    </div>
+    <div *ngIf="gameState === 1" class="end-game">
+        <h2>{{gameOutcomeLine}}</h2>
+        <h3 *ngIf="gameResultToDisplay === null">Проводиться підкидання монетки...</h3>
+        <div *ngIf="gameResultToDisplay !== null" class="end-game">
+            <img class="result-image" [src]="resultImage" alt="Result Image">
+            <button *ngIf="gameResultToDisplay === 1" class="btn btn-success mt-2" (click)="changeState()">Подвоїти куш</button>
+            <h4 *ngIf="gameResultToDisplay === 0">Для вас гра закінчилася назавжди.</h4>
+        </div>
+    </div>
+</div>
